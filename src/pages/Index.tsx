@@ -1,11 +1,21 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import HealthMetrics from "@/components/HealthMetrics";
+import BurnoutRisk from "@/components/BurnoutRisk";
+import BenefitsStatus from "@/components/BenefitsStatus";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background">
+      <div className="container py-8">
+        <div className="space-y-2 mb-8">
+          <h1 className="text-4xl font-bold tracking-tight">Health Dashboard</h1>
+          <p className="text-muted-foreground">
+            Track your health metrics, manage burnout, and monitor benefits
+          </p>
+        </div>
+        
+        <HealthMetrics />
+        <BurnoutRisk />
+        <BenefitsStatus />
       </div>
     </div>
   );
