@@ -12,10 +12,10 @@ const HeroSection = () => {
         className="text-center space-y-6"
       >
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-          Your Complete Health & Wellness Platform
+          Inversion+ for Veterans Benefits
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Comprehensive health tracking, burnout prevention, and veterans benefits management in one seamless experience.
+          AI-powered claims processing, burnout prevention, and comprehensive health tracking designed for VSRs and veterans.
         </p>
         <div className="flex justify-center gap-4 pt-4">
           <Button size="lg" className="gap-2">
