@@ -12,17 +12,17 @@ const HeroSection = () => {
         className="text-center space-y-6"
       >
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-          Your Complete Health & Wellness Platform
+          Precision Burnout Prevention for Shift Workers
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Advanced health tracking and burnout prevention in one seamless experience.
+          Stop burnout before it starts. AI-powered insights to keep your team healthy, productive, and stable.
         </p>
         <div className="flex justify-center gap-4 pt-4">
           <Button size="lg" className="gap-2">
-            Get Started <ArrowRight className="h-4 w-4" />
+            Start Free Trial <ArrowRight className="h-4 w-4" />
           </Button>
           <Button size="lg" variant="outline">
-            Learn More
+            For Employers
           </Button>
         </div>
       </motion.div>
