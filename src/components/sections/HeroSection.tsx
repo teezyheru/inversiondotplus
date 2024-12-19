@@ -11,9 +11,20 @@ const HeroSection = () => {
         transition={{ duration: 0.5 }}
         className="text-center space-y-8 max-w-4xl mx-auto"
       >
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-health-primary via-health-secondary to-health-accent bg-clip-text text-transparent">
+        <motion.h1 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-5xl md:text-7xl font-bold tracking-tight"
+        >
+          <span className="bg-gradient-to-r from-health-primary via-health-secondary to-health-accent bg-clip-text text-transparent">
+            Inversion
+          </span>
+          <span className="text-health-primary">+</span>
+        </motion.h1>
+        <h2 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-health-primary via-health-secondary to-health-accent bg-clip-text text-transparent">
           Precision Burnout Prevention for Shift Workers
-        </h1>
+        </h2>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           AI-powered insights to keep your team healthy, productive, and stable. Start with our 60-second assessment.
         </p>
