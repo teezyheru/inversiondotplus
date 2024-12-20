@@ -8,10 +8,7 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   const handleStartAssessment = () => {
-    // For now, we'll show a toast since the assessment page isn't built yet
-    toast.info("Assessment feature coming soon!");
-    // TODO: Uncomment when assessment route is ready
-    // navigate("/assessment");
+    navigate("/assessment");
   };
 
   const handleViewDemo = () => {
