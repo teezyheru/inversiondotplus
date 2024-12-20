@@ -1,8 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const handleStartAssessment = () => {
+    // For now, we'll show a toast since the assessment page isn't built yet
+    toast.info("Assessment feature coming soon!");
+    // TODO: Uncomment when assessment route is ready
+    // navigate("/assessment");
+  };
+
+  const handleViewDemo = () => {
+    toast.info("Demo feature coming soon!");
+    // TODO: Implement demo functionality
+  };
+
   return (
     <section className="container py-24 md:py-32">
       <motion.div 
@@ -29,10 +45,19 @@ const HeroSection = () => {
           AI-powered insights to keep your team healthy, productive, and stable. Start with our 60-second assessment.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-          <Button size="lg" className="bg-health-primary hover:bg-health-primary/90 gap-2">
+          <Button 
+            size="lg" 
+            className="bg-health-primary hover:bg-health-primary/90 gap-2"
+            onClick={handleStartAssessment}
+          >
             Start Free Assessment <ArrowRight className="h-4 w-4" />
           </Button>
-          <Button size="lg" variant="outline" className="border-health-primary text-health-primary hover:bg-health-primary/10">
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="border-health-primary text-health-primary hover:bg-health-primary/10"
+            onClick={handleViewDemo}
+          >
             View Demo
           </Button>
         </div>

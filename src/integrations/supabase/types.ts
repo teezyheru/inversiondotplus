@@ -9,6 +9,113 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      assessments: {
+        Row: {
+          created_at: string | null
+          fatigue_level: number | null
+          id: string
+          primary_stressors: string[] | null
+          recommendations: string[] | null
+          stress_level: number | null
+          user_id: string | null
+          work_life_balance: number | null
+        }
+        Insert: {
+          created_at?: string | null
+          fatigue_level?: number | null
+          id?: string
+          primary_stressors?: string[] | null
+          recommendations?: string[] | null
+          stress_level?: number | null
+          user_id?: string | null
+          work_life_balance?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          fatigue_level?: number | null
+          id?: string
+          primary_stressors?: string[] | null
+          recommendations?: string[] | null
+          stress_level?: number | null
+          user_id?: string | null
+          work_life_balance?: number | null
+        }
+        Relationships: []
+      }
+      burnout_alerts: {
+        Row: {
+          action_items: string[] | null
+          alert_type: string
+          created_at: string | null
+          description: string
+          id: string
+          resolved_at: string | null
+          risk_level: number | null
+          status: string | null
+          user_id: string | null
+        }
+        Insert: {
+          action_items?: string[] | null
+          alert_type: string
+          created_at?: string | null
+          description: string
+          id?: string
+          resolved_at?: string | null
+          risk_level?: number | null
+          status?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          action_items?: string[] | null
+          alert_type?: string
+          created_at?: string | null
+          description?: string
+          id?: string
+          resolved_at?: string | null
+          risk_level?: number | null
+          status?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      employee_profiles: {
+        Row: {
+          created_at: string | null
+          id: string
+          organization_id: string | null
+          role: string
+          shift_pattern: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          organization_id?: string | null
+          role: string
+          shift_pattern?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          organization_id?: string | null
+          role?: string
+          shift_pattern?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "employee_profiles_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       exercises: {
         Row: {
           created_at: string | null
@@ -50,6 +157,39 @@ export type Database = {
           },
         ]
       }
+      organizations: {
+        Row: {
+          created_at: string | null
+          id: string
+          name: string
+          subscription_status: string | null
+          subscription_tier:
+            | Database["public"]["Enums"]["subscription_tier"]
+            | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          name: string
+          subscription_status?: string | null
+          subscription_tier?:
+            | Database["public"]["Enums"]["subscription_tier"]
+            | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          name?: string
+          subscription_status?: string | null
+          subscription_tier?:
+            | Database["public"]["Enums"]["subscription_tier"]
+            | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -70,6 +210,77 @@ export type Database = {
           username?: string | null
         }
         Relationships: []
+      }
+      shifts: {
+        Row: {
+          created_at: string | null
+          end_time: string
+          fatigue_risk_level: number | null
+          id: string
+          notes: string | null
+          shift_type: string
+          start_time: string
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          end_time: string
+          fatigue_risk_level?: number | null
+          id?: string
+          notes?: string | null
+          shift_type: string
+          start_time: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          end_time?: string
+          fatigue_risk_level?: number | null
+          id?: string
+          notes?: string | null
+          shift_type?: string
+          start_time?: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      team_analytics: {
+        Row: {
+          created_at: string | null
+          id: string
+          measurement_period: unknown
+          metric_type: string
+          metric_value: number | null
+          organization_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          measurement_period: unknown
+          metric_type: string
+          metric_value?: number | null
+          organization_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          measurement_period?: unknown
+          metric_type?: string
+          metric_value?: number | null
+          organization_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "team_analytics_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       workouts: {
         Row: {
@@ -117,7 +328,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      subscription_tier: "basic" | "pro" | "enterprise"
     }
     CompositeTypes: {
       [_ in never]: never
