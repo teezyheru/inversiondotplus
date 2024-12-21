@@ -89,7 +89,7 @@ const AssessmentForm = () => {
       if (error) throw error;
 
       toast.success("Assessment completed successfully!");
-      navigate("/dashboard");
+      navigate("/smart-scheduling");
     } catch (error) {
       console.error("Error submitting assessment:", error);
       toast.error("Failed to save assessment. Please try again.");
