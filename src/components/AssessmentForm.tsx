@@ -65,13 +65,16 @@ const AssessmentForm = () => {
     setIsSubmitting(true);
 
     try {
+      // Check if user is authenticated
       const { data: { user } } = await supabase.auth.getUser();
       
       if (!user) {
         toast.error("Please sign in to save your assessment");
+        setIsSubmitting(false);
         return;
       }
 
+      // Insert assessment data
       const { error } = await supabase.from("assessments").insert({
         user_id: user.id,
         stress_level: formData.stressLevel,
@@ -86,9 +89,14 @@ const AssessmentForm = () => {
         break_duration: formData.breakDuration,
       });
 
-      if (error) throw error;
+      if (error) {
+        console.error("Error saving assessment:", error);
+        toast.error("Failed to save assessment. Please try again.");
+        return;
+      }
 
       toast.success("Assessment completed successfully!");
+      // Ensure we navigate after successful save
       navigate("/smart-scheduling");
     } catch (error) {
       console.error("Error submitting assessment:", error);
