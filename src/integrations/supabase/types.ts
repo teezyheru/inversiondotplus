@@ -11,34 +11,49 @@ export type Database = {
     Tables: {
       assessments: {
         Row: {
+          average_shift_length: number | null
+          break_duration: number | null
           created_at: string | null
+          days_per_week: number | null
           fatigue_level: number | null
           id: string
+          preferred_shift_time: string | null
           primary_stressors: string[] | null
           recommendations: string[] | null
           stress_level: number | null
           user_id: string | null
           work_life_balance: number | null
+          work_schedule: string | null
         }
         Insert: {
+          average_shift_length?: number | null
+          break_duration?: number | null
           created_at?: string | null
+          days_per_week?: number | null
           fatigue_level?: number | null
           id?: string
+          preferred_shift_time?: string | null
           primary_stressors?: string[] | null
           recommendations?: string[] | null
           stress_level?: number | null
           user_id?: string | null
           work_life_balance?: number | null
+          work_schedule?: string | null
         }
         Update: {
+          average_shift_length?: number | null
+          break_duration?: number | null
           created_at?: string | null
+          days_per_week?: number | null
           fatigue_level?: number | null
           id?: string
+          preferred_shift_time?: string | null
           primary_stressors?: string[] | null
           recommendations?: string[] | null
           stress_level?: number | null
           user_id?: string | null
           work_life_balance?: number | null
+          work_schedule?: string | null
         }
         Relationships: []
       }
