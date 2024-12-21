@@ -1,14 +1,26 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import AssessmentForm from "@/components/AssessmentForm";
+import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 const Assessment = () => {
-  const [step, setStep] = useState(1);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const { data: { session }, error } = await supabase.auth.getSession();
+      if (error || !session) {
+        toast.error("Please sign in to access the assessment");
+        navigate("/login");
+      }
+    };
+
+    checkAuth();
+  }, [navigate]);
 
   return (
     <div className="min-h-screen bg-background py-12 px-4">
