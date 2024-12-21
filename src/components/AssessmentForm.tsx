@@ -62,20 +62,33 @@ const AssessmentForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Form submission started");
+    
+    if (isSubmitting) {
+      console.log("Already submitting, preventing double submission");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      // Check if user is authenticated
-      const { data: { user } } = await supabase.auth.getUser();
+      console.log("Checking user authentication");
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
       
-      if (!user) {
-        toast.error("Please sign in to save your assessment");
-        setIsSubmitting(false);
+      if (authError) {
+        console.error("Auth error:", authError);
+        toast.error("Authentication error. Please try again.");
         return;
       }
 
-      // Insert assessment data
-      const { error } = await supabase.from("assessments").insert({
+      if (!user) {
+        console.log("No authenticated user found");
+        toast.error("Please sign in to save your assessment");
+        return;
+      }
+
+      console.log("Preparing assessment data for user:", user.id);
+      const assessmentData = {
         user_id: user.id,
         stress_level: formData.stressLevel,
         fatigue_level: formData.fatigueLevel,
@@ -87,20 +100,25 @@ const AssessmentForm = () => {
         preferred_shift_time: formData.preferredShiftTime,
         days_per_week: formData.daysPerWeek,
         break_duration: formData.breakDuration,
-      });
+      };
 
-      if (error) {
-        console.error("Error saving assessment:", error);
+      console.log("Inserting assessment data:", assessmentData);
+      const { error: insertError } = await supabase
+        .from("assessments")
+        .insert(assessmentData);
+
+      if (insertError) {
+        console.error("Error saving assessment:", insertError);
         toast.error("Failed to save assessment. Please try again.");
         return;
       }
 
+      console.log("Assessment saved successfully");
       toast.success("Assessment completed successfully!");
-      // Ensure we navigate after successful save
       navigate("/smart-scheduling");
     } catch (error) {
-      console.error("Error submitting assessment:", error);
-      toast.error("Failed to save assessment. Please try again.");
+      console.error("Unexpected error during submission:", error);
+      toast.error("An unexpected error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
