@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { Clock, Calendar as CalendarIcon, AlertTriangle } from "lucide-react";
+import { Clock, AlertTriangle } from "lucide-react";
 
 interface Shift {
   id: string;
@@ -43,9 +43,16 @@ const SmartScheduling = () => {
         .select("*")
         .order("created_at", { ascending: false })
         .limit(1)
-        .single();
+        .maybeSingle();
 
       if (error) throw error;
+      
+      if (!assessmentData) {
+        toast.error("No assessment found. Please complete an assessment first.");
+        navigate("/assessment");
+        return;
+      }
+
       setAssessment(assessmentData);
     } catch (error) {
       console.error("Error fetching assessment:", error);
@@ -96,7 +103,7 @@ const SmartScheduling = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card className="p-6">
             <h2 className="text-2xl font-semibold mb-4">Your Preferences</h2>
-            {assessment && (
+            {assessment ? (
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span>Preferred Schedule:</span>
@@ -115,12 +122,14 @@ const SmartScheduling = () => {
                   <span className="font-medium">{assessment.average_shift_length} hours</span>
                 </div>
               </div>
+            ) : (
+              <p className="text-muted-foreground">No preferences found. Please complete an assessment.</p>
             )}
           </Card>
 
           <Card className="p-6">
             <h2 className="text-2xl font-semibold mb-4">Recommendations</h2>
-            {assessment?.recommendations && (
+            {assessment?.recommendations ? (
               <ul className="space-y-3">
                 {assessment.recommendations.map((rec, index) => (
                   <li key={index} className="flex items-start gap-2">
@@ -129,6 +138,8 @@ const SmartScheduling = () => {
                   </li>
                 ))}
               </ul>
+            ) : (
+              <p className="text-muted-foreground">No recommendations available.</p>
             )}
           </Card>
 
