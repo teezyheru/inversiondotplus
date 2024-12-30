@@ -38,7 +38,7 @@ const HeroSection = () => {
           Mental Health Diagnostics for Veterans
         </h2>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Revolutionizing veteran mental health care through AI-powered conversations. Our innovative platform combines natural dialogue with advanced analytics to provide precise, personalized support when it matters most.
+          Using AI-powered conversations to help veterans get accurate PTSD diagnosis and support. Simple, natural, and effective.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
           <Button 
