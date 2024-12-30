@@ -1,4 +1,4 @@
-import { Activity, Clock, Brain, Users } from "lucide-react";
+import { Mic, Brain, BarChart3, Users } from "lucide-react";
 import { motion } from "framer-motion";
 
 const FeaturesSection = () => {
@@ -11,7 +11,7 @@ const FeaturesSection = () => {
           transition={{ duration: 0.5 }}
           className="text-3xl font-bold text-center mb-16"
         >
-          Why Inversion+
+          Key Features
         </motion.h2>
         <div className="grid md:grid-cols-2 gap-8">
           <motion.div 
@@ -21,11 +21,11 @@ const FeaturesSection = () => {
             className="bg-background/80 backdrop-blur-sm p-8 rounded-2xl shadow-sm border border-muted"
           >
             <div className="h-14 w-14 bg-health-primary/10 rounded-2xl flex items-center justify-center mb-6">
-              <Brain className="h-7 w-7 text-health-primary" />
+              <Mic className="h-7 w-7 text-health-primary" />
             </div>
-            <h3 className="text-xl font-semibold mb-3">60-Second Assessment</h3>
+            <h3 className="text-xl font-semibold mb-3">Audio-Driven Insights</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Quick, targeted questions identify your biggest stress triggers and create a personalized prevention plan.
+              Turn speech into structured data with AI-powered speech recognition, emotion detection, and context analysis.
             </p>
           </motion.div>
 
@@ -36,11 +36,11 @@ const FeaturesSection = () => {
             className="bg-background/80 backdrop-blur-sm p-8 rounded-2xl shadow-sm border border-muted"
           >
             <div className="h-14 w-14 bg-health-secondary/10 rounded-2xl flex items-center justify-center mb-6">
-              <Activity className="h-7 w-7 text-health-secondary" />
+              <Brain className="h-7 w-7 text-health-secondary" />
             </div>
-            <h3 className="text-xl font-semibold mb-3">AI-Powered Alerts</h3>
+            <h3 className="text-xl font-semibold mb-3">Emotion Detection</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Preemptive warnings when burnout risks spike, with actionable steps for both workers and managers.
+              Identify stress, anxiety, and emotional shifts to provide a clear picture of mental health.
             </p>
           </motion.div>
 
@@ -51,11 +51,11 @@ const FeaturesSection = () => {
             className="bg-background/80 backdrop-blur-sm p-8 rounded-2xl shadow-sm border border-muted"
           >
             <div className="h-14 w-14 bg-health-accent/10 rounded-2xl flex items-center justify-center mb-6">
-              <Clock className="h-7 w-7 text-health-accent" />
+              <BarChart3 className="h-7 w-7 text-health-accent" />
             </div>
-            <h3 className="text-xl font-semibold mb-3">Smart Scheduling</h3>
+            <h3 className="text-xl font-semibold mb-3">Structured Reporting</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Optimize shift patterns to reduce fatigue and improve work-life balance with AI-driven recommendations.
+              Transform conversation data into actionable insights with intuitive visualizations for clinicians.
             </p>
           </motion.div>
 
@@ -68,9 +68,9 @@ const FeaturesSection = () => {
             <div className="h-14 w-14 bg-health-primary/10 rounded-2xl flex items-center justify-center mb-6">
               <Users className="h-7 w-7 text-health-primary" />
             </div>
-            <h3 className="text-xl font-semibold mb-3">Team Insights</h3>
+            <h3 className="text-xl font-semibold mb-3">Conversational Assessment</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Help managers identify team stress patterns and implement targeted solutions with real-time analytics.
+              A natural phone call experience gathers meaningful data while putting users at ease, identifying stress triggers and emotional cues.
             </p>
           </motion.div>
         </div>

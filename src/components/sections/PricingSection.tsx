@@ -23,11 +23,11 @@ const PricingSection = () => {
             <ul className="space-y-3 mb-6">
               <li className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-health-primary" />
-                <span>Basic health tracking</span>
+                <span>Basic audio tracking</span>
               </li>
               <li className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-health-primary" />
-                <span>Simple burnout alerts</span>
+                <span>Simple emotional alerts</span>
               </li>
               <li className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-health-primary" />
@@ -52,11 +52,11 @@ const PricingSection = () => {
             <ul className="space-y-3 mb-6">
               <li className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-health-primary" />
-                <span>Advanced health analytics</span>
+                <span>Advanced emotional analytics</span>
               </li>
               <li className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-health-primary" />
-                <span>AI-powered burnout prevention</span>
+                <span>AI-driven PTSD diagnostics</span>
               </li>
               <li className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-health-primary" />
@@ -64,7 +64,7 @@ const PricingSection = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-health-primary" />
-                <span>Custom reports</span>
+                <span>Detailed reports</span>
               </li>
             </ul>
             <Button className="w-full">Get Pro</Button>
@@ -84,7 +84,7 @@ const PricingSection = () => {
             <ul className="space-y-3 mb-6">
               <li className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-health-primary" />
-                <span>Custom integration</span>
+                <span>Full integration with clinical systems</span>
               </li>
               <li className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-health-primary" />
@@ -96,7 +96,7 @@ const PricingSection = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-health-primary" />
-                <span>SLA guarantee</span>
+                <span>SLA guarantees</span>
               </li>
             </ul>
             <Button variant="outline" className="w-full">Contact Sales</Button>

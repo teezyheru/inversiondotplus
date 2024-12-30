@@ -13,7 +13,6 @@ const HeroSection = () => {
 
   const handleViewDemo = () => {
     toast.info("Demo feature coming soon!");
-    // TODO: Implement demo functionality
   };
 
   return (
@@ -36,10 +35,10 @@ const HeroSection = () => {
           <span className="text-health-primary">+</span>
         </motion.h1>
         <h2 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-health-primary via-health-secondary to-health-accent bg-clip-text text-transparent">
-          Precision Burnout Prevention for Shift Workers
+          AI-Driven Mental Health Diagnostics for Veterans with PTSD
         </h2>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          AI-powered insights to keep your team healthy, productive, and stable. Start with our 60-second assessment.
+          Transforming how we approach PTSD diagnosis with natural, conversational insights powered by cutting-edge AI. Start with our simple, conversational assessment today.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
           <Button 
@@ -47,7 +46,7 @@ const HeroSection = () => {
             className="bg-health-primary hover:bg-health-primary/90 gap-2"
             onClick={handleStartAssessment}
           >
-            Start Free Assessment <ArrowRight className="h-4 w-4" />
+            Start Assessment <ArrowRight className="h-4 w-4" />
           </Button>
           <Button 
             size="lg" 
