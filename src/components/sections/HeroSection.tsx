@@ -35,10 +35,10 @@ const HeroSection = () => {
           <span className="text-health-primary">+</span>
         </motion.h1>
         <h2 className="text-3xl md:text-4xl font-semibold bg-gradient-to-r from-health-primary via-health-secondary to-health-accent bg-clip-text text-transparent">
-          AI-Driven Mental Health Diagnostics for Veterans with PTSD
+          Better PTSD Diagnosis for Veterans
         </h2>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Transforming how we approach PTSD diagnosis with natural, conversational insights powered by cutting-edge AI. Start with our simple, conversational assessment today.
+          Using AI-powered conversations to help veterans get accurate PTSD diagnosis and support. Simple, natural, and effective.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
           <Button 
