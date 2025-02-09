@@ -1,8 +1,8 @@
+
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { toast } from "sonner";
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const HeroSection = () => {
   };
 
   const handleViewDemo = () => {
-    toast.info("Demo feature coming soon!");
+    window.open("https://inversionn.lovable.app/", "_blank");
   };
 
   return (
@@ -51,10 +51,10 @@ const HeroSection = () => {
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-health-primary text-health-primary hover:bg-health-primary/10"
+            className="border-health-primary text-health-primary hover:bg-health-primary/10 gap-2"
             onClick={handleViewDemo}
           >
-            View Demo
+            View Demo <ExternalLink className="h-4 w-4" />
           </Button>
         </div>
       </motion.div>
